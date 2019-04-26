@@ -1,0 +1,27 @@
+[submodule "Vundle.vim"]
+	path = Vundle.vim
+	url = ./.vim/bundle/Vundle.vim
+[submodule "YouCompleteMe"]
+	path = YouCompleteMe
+	url = ./.vim/bundle/YouCompleteMe
+[submodule "nerdcommenter"]
+	path = nerdcommenter
+	url = ./.vim/bundle/nerdcommenter
+[submodule "nerdtree"]
+	path = nerdtree
+	url = ./.vim/bundle/nerdtree
+[submodule "tagbar"]
+	path = tagbar
+	url = ./.vim/bundle/tagbar
+[submodule "vim-airline-themes"]
+	path = vim-airline-themes
+	url = ./.vim/bundle/vim-airline-themes
+[submodule "vim-airline"]
+	path = vim-airline
+	url = ./.vim/bundle/vim-airline
+[submodule "vim-json"]
+	path = vim-json
+	url = ./.vim/bundle/vim-json
+[submodule "syntastic"]
+	path = syntastic
+	url = ./.vim/bundle/syntastic
