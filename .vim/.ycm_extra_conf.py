@@ -45,6 +45,7 @@ flags = [
 '-Wall',
 '-Wextra',
 '-Werror',
+'-Wno-unused-parameter',
 '-Wno-long-long',
 '-Wno-variadic-macros',
 '-fexceptions',
