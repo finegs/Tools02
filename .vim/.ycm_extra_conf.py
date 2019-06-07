@@ -45,7 +45,6 @@ flags = [
 '-Wall',
 '-Wextra',
 '-Werror',
-'-Wno-unused-parameter',
 '-Wno-long-long',
 '-Wno-variadic-macros',
 '-fexceptions',
@@ -54,6 +53,7 @@ flags = [
 # only the YCM source code needs it.
 '-DUSE_CLANG_COMPLETER',
 '-DYCM_EXPORT=',
+'-std=c++2a',
 # THIS IS IMPORTANT! Without the '-x' flag, Clang won't know which language to
 # use when compiling headers. So it will guess. Badly. So C++ headers will be
 # compiled as C headers. You don't want that so ALWAYS specify the '-x' flag.
@@ -84,6 +84,22 @@ get_python_inc(),
 'cpp/ycm/tests/gmock/include',
 '-isystem',
 'cpp/ycm/benchmarks/benchmark/include',
+'-isystem', 
+'C:/Programs/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++', 
+'-isystem', 
+'C:/Programs/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32', 
+'-isystem', 
+'C:/Programs/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward', 
+'-isystem', 
+'C:/Programs/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include', 
+'-isystem', 
+'C:/Programs/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed', 
+'-isystem', 
+'C:/Programs/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/include', 
+'-isystem',
+'C:/Programs/boost/1_69_0\include/boost-1_69',
+'-isystem',
+'.',
 ]
 
 # Clang automatically sets the '-std=' flag to 'c++14' for MSVC 2015 or later,
