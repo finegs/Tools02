@@ -53,7 +53,8 @@ flags = [
 # only the YCM source code needs it.
 '-DUSE_CLANG_COMPLETER',
 '-DYCM_EXPORT=',
-'-std=c++2a',
+#'-std=c++2a',
+'-std=c++17',
 # THIS IS IMPORTANT! Without the '-x' flag, Clang won't know which language to
 # use when compiling headers. So it will guess. Badly. So C++ headers will be
 # compiled as C headers. You don't want that so ALWAYS specify the '-x' flag.
@@ -91,14 +92,14 @@ get_python_inc(),
 '-isystem', 
 'C:/Programs/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward', 
 '-isystem', 
-'C:/Programs/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include', 
+'C/Programs/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include', 
 '-isystem', 
 'C:/Programs/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed', 
 '-isystem', 
 'C:/Programs/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/include', 
-'-isystem',
-'C:/Programs/boost/1_69_0\include/boost-1_69',
-'-isystem',
+'-I',
+'C/Programs/boost/1_69_0/include/boost-1_69',
+'-I',
 '.',
 ]
 
