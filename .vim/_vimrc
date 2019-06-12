@@ -288,7 +288,7 @@ nnoremap <leader>p :YcmCompleter GetParent<CR>
 
 let g:ycm_min_num_of_chars_for_completion = 1			  " 기본값은 2입니다. 문자가 1개 입력되면 그 때부터 자동완성을 시작합니다. 쓰지 않을려면 99같은 큰 값을 넣어줍니다.
 let g:ycm_auto_trigger = 0							  " 기본값은 1입니다. '.'이나 '->'을 받으면 자동으로 목록들을 출력해주죠.
-let g:ycm_collect_identifiers_from_tags_files = 0	  " tags 파일을 사용합니다. 성능상 이익이 있는걸로 알고 있습니다.
+let g:ycm_collect_identifiers_from_tags_files = 1	  " tags 파일을 사용합니다. 성능상 이익이 있는걸로 알고 있습니다.
 let g:ycm_filetype_whitelist = { '*': 1 }			  " 화이트 리스트를 설정합니다.
 let g:ycm_filetype_blacklist = {
       \ 'tagbar' : 1,
