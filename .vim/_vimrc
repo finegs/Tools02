@@ -124,6 +124,7 @@ set path+=.,..,/usr/include,/usr/local/include,$MINGW_HOME/lib/gcc/x86_64-mingw3
 "set tags+=~/.vim/tags/qt4
 set tags+=tags
 set tags+=$MINGW_HOME/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/tags
+set tags+=$MINGW_HOME/x86_64-w64-mingw32/include/tags
 set tags+=$BOOST_INC/tags
 
 " Install DoxygenToolkit from http://www.vim.org/scripts/script.php?script_id=987
@@ -131,6 +132,29 @@ set tags+=$BOOST_INC/tags
 let g:DoxygenToolkit_authorName="John Doe <john@doe.com>"
 
 " Enhanced keyboard mappings
+let mapleader=","
+set lazyredraw
+
+
+",vi => show edit tab .vimrc
+nnoremap <leader>vi :tabe $MYVIMRC<CR> 
+",src => reload .vimrc
+nnoremap <leader>src :source $MYVIMRC<CR>
+
+",q => Quit
+map <leader>q <ESC><ESC>:q<CR>
+
+"jk => esc, Escape insert mode
+inoremap jk <ESC>
+
+""""""""""""""""""""""""""
+"   Moving tab Setting
+""""""""""""""""""""""""""
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
+
 "
 " in normal mode F2 will save the file
 nmap <F2> :w<CR>
@@ -241,6 +265,7 @@ map <C-9> <ESC>:TagbarToggle<CR>
 
 map <F3> <ESC><C-]>
 map <S-F3> <ESC><C-t>
+map <C-F3> :ts<CR>
 
 "map for move lines
 map <S-Up> :m-2<CR>
