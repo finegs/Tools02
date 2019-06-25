@@ -44,7 +44,7 @@ SOURCE_EXTENSIONS = [ '.cpp', '.cxx', '.cc', '.c', '.m', '.mm' ]
 flags = [
 '-Wall',
 '-Wextra',
-'-Werror',
+#'-Werror',
 '-Wno-long-long',
 '-Wno-variadic-macros',
 '-fexceptions',
@@ -53,8 +53,8 @@ flags = [
 # only the YCM source code needs it.
 '-DUSE_CLANG_COMPLETER',
 '-DYCM_EXPORT=',
-#'-std=c++2a',
-'-std=c++17',
+'-std=c++2a',
+#'-std=c++17',
 # THIS IS IMPORTANT! Without the '-x' flag, Clang won't know which language to
 # use when compiling headers. So it will guess. Badly. So C++ headers will be
 # compiled as C headers. You don't want that so ALWAYS specify the '-x' flag.
