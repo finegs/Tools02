@@ -1,7 +1,7 @@
 @echo off
-SET MSYS_HOME=C:/Programs/msys64
+SET MSYS_HOME=D:/Programs/msys64
 SET MINGW_HOME=%MSYS_HOME%/mingw64
-SET BOOST_HOME=C:/Programs/boost/boost
+SET BOOST_HOME=D:/Programs/boost/boost
 SET BOOST_INC=%BOOST_HOME%/../boost_inc
 SET BOOST_LIB=%BOOST_HOME%/lib
 rem ##############################################
