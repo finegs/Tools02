@@ -1,0 +1,2 @@
+1. run powershell
+2. Get-WmiObject CIM_physicalmemory|out-gridview
