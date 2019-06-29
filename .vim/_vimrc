@@ -123,6 +123,7 @@ set path+=.,..,/usr/include,/usr/local/include,$MINGW_HOME/lib/gcc/x86_64-mingw3
 "set tags+=~/.vim/tags/sdl
 "set tags+=~/.vim/tags/qt4
 set tags+=tags
+set tags+=$MINGW_HOME/lib/gcc/x86_64-w64-mingw32/8.1.0/include/tags
 set tags+=$MINGW_HOME/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/tags
 set tags+=$BOOST_INC/tags
 
@@ -209,7 +210,7 @@ let g:syntastic_check_on_wq = 1
 "let g:syntastic_cpp_checkers = ['g++']
 let g:syntastic_cpp_checkers = ['gcc']
 let g:syntastic_cpp_compiler = 'g++'
-let g:syntastic_cpp_compiler_options = '-std=c++17'
+let g:syntastic_cpp_compiler_options = '-std=c++2a'
 "let g:syntastic_cpp_compiler_options = '-std=c++2a'
 let g:syntastic_c_include_dirs = [ '../include/', 'include/', 'inc/', 'C:/Programs/boost/boost_inc', './' ]
 "let b:syntastic_c_cflags = '-Iinc -IC:\Programs\boost\1_69_0\include\boost-1_69'
@@ -222,8 +223,8 @@ imap <F2> <ESC> :w<CR>i
 "map <F4> :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
 "map <F5> :make clean all<CR>
 "map <F4> :!ctags -R -c++kinds=+p -fields=+ias -extra=+q .<CR>
-"map <S-F4> :!ctags -R -n --c++-kinds=+p --extra=+f --fields=+i+K+S+l+m+a .<CR>
-map <S-F4> :!ctags -R --fields=+l .<CR>
+map <S-F4> :!ctags -R -n --c++-kinds=+p --extra=+f --fields=+i+K+S+l+m+a .<CR>
+"map <S-F4> :!ctags -R --lang=C --lang=C++ --fields=+l .<CR>
 
 map <F5> :cn<CR>
 map <S-F5> :cp<CR>
@@ -276,7 +277,8 @@ let g:ycm_use_clangd = 1
 "let g:ycm_clangd_binary_path = "C:/Programs/LLVM/bin"
 let g:ycm_clangd_binary_path = "G:/Programs/LLVM/LLVM/bin/clangd.exe"
 let g:ycm_confirm_extra_conf = 0
-let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
+"let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
+let g:ycm_global_ycm_extra_conf = "~/.vim/bundle/YouCompleteMe/.ycm_extra_conf.py"
 "let g:ycm_global_ycm_extra_conf = [ "~/.vim/*" ]
 let g:ycm_key_list_select_completion = ['<TAB>', '<Down>'] 
 let g:ycm_key_list_previous_completion = ['<S-TAB>', '<Up>']
@@ -369,3 +371,8 @@ autocmd FileType asm set noexpandtab shiftwidth=8 softtabstop=0 syntax=nasm
 if &diff
   syntax off
 endif
+
+
+" added by SGK 20190622 : highlight color changed
+"hi SpellBad term=bold,undercurl ctermfg=lightgrey ctermbg=darkgrey
+hi SpellBad term=undercurl,bold ctermbg=lightgrey ctermfg=darkblue cterm=undercurl,bold gui=undercurl,bold
