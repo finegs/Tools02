@@ -38,6 +38,8 @@ DIR_OF_THIS_SCRIPT = os.path.abspath( os.path.dirname( __file__ ) )
 DIR_OF_THIRD_PARTY = os.path.join( DIR_OF_THIS_SCRIPT, 'third_party' )
 SOURCE_EXTENSIONS = [ '.cpp', '.cxx', '.cc', '.c', '.m', '.mm' ]
 
+YCM_PATH = 'C:/Users/fineg/.vim/bundle/YouCompleteMe'
+
 # These are the compilation flags that will be used in case there's no
 # compilation database set (by default, one is not set).
 # CHANGE THIS LIST OF FLAGS. YES, THIS IS THE DROID YOU HAVE BEEN LOOKING FOR.
@@ -54,10 +56,7 @@ flags = [
 '-DUSE_CLANG_COMPLETER',
 '-DYCM_EXPORT=',
 '-std=c++2a',
-<<<<<<< HEAD
-=======
 #'-std=c++17',
->>>>>>> refs/remotes/origin/master
 # THIS IS IMPORTANT! Without the '-x' flag, Clang won't know which language to
 # use when compiling headers. So it will guess. Badly. So C++ headers will be
 # compiled as C headers. You don't want that so ALWAYS specify the '-x' flag.
@@ -100,17 +99,8 @@ get_python_inc(),
 'D:/Programs/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed', 
 '-isystem', 
 'D:/Programs/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/include', 
-<<<<<<< HEAD
 '-I',
 'D:/Programs/boost/boost_inc',
-=======
->>>>>>> refs/remotes/origin/master
-'-I',
-'D:/Programs/boost/boost_inc',
-'-isystem',
-'.',
-'-isystem',
-'inc',
 ]
 
 # Clang automatically sets the '-std=' flag to 'c++14' for MSVC 2015 or later,

@@ -279,10 +279,7 @@ let g:syntastic_cpp_checkers = ['g++']
 "let g:syntastic_cpp_checkers = ['gcc']
 let g:syntastic_cpp_compiler = 'g++'
 let g:syntastic_cpp_compiler_options = '-std=c++2a'
-<<<<<<< HEAD
-"let g:syntastic_cpp_compiler_options = '-std=c++2a'
-let g:syntastic_c_include_dirs = [ '../include/', 'include/', 'inc/', 'C:/Programs/boost/boost_inc', './' ]
-"let b:syntastic_c_cflags = '-Iinc -IC:\Programs\boost\1_69_0\include\boost-1_69'
+let g:syntastic_c_include_dirs = [ '../include/', 'include/', 'inc/', 'D:/Programs/boost/boost_inc', './' ]
 
 nmap <Tab> <C-W>w
 nmap <S-TAB> <C-W><C-P>
@@ -308,12 +305,12 @@ map <C-F7> <ESC>:make release<CR>
 
 map <C-0> <ESC>:NERDTreeToggle<CR>
 map <C-9> <ESC>:TagbarToggle<CR>
-=======
+
 let g:syntastic_error_symbol = 'X'
 let g:syntastic_c_include_dirs = [ '../include', 'include', 'inc', 'D:/Programs/boost/boost_inc', '.' ]
 "let b:syntastic_c_cflags = '-Iinc -IC:\Programs\boost\1_69_0\include\boost-1_69'
 
->>>>>>> refs/remotes/origin/master
+
 
 
 
@@ -338,9 +335,7 @@ let g:ctrlp_user_command = 'ag %s -i -nocolor --nogroup -- hidden \
 let g:ycm_use_clangd = 1
 let g:ycm_clangd_binary_path = "D:/Programs/LLVM/LLVM/bin/clangd.exe"
 let g:ycm_confirm_extra_conf = 0
-"let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
 let g:ycm_global_ycm_extra_conf = "~/.vim/bundle/YouCompleteMe/.ycm_extra_conf.py"
-"let g:ycm_global_ycm_extra_conf = [ "~/.vim/*" ]
 let g:ycm_key_list_select_completion = ['<TAB>', '<Down>'] 
 let g:ycm_key_list_previous_completion = ['<S-TAB>', '<Up>']
 let g:ycm_autoclose_preview_window_after_completion = 1
@@ -354,15 +349,15 @@ nnoremap <leader>d :YcmCompleter GoToDeclaration<CR>
 nnoremap <leader>t :YcmCompleter GetType<CR>
 nnoremap <leader>p :YcmCompleter GetParent<CR>
 
-let g:ycm_min_num_of_chars_for_completion = 2			  " 기본값은 2입니다. 문자가 1개 입력되면 그 때부터 자동완성을 시작합니다. 쓰지 않을려면 99같은 큰 값을 넣어줍니다.
-let g:ycm_auto_trigger = 0							  " 기본값은 1입니다. '.'이나 '->'을 받으면 자동으로 목록들을 출력해주죠.
-let g:ycm_collect_identifiers_from_tags_files = 1	  " tags 파일을 사용합니다. 성능상 이익이 있는걸로 알고 있습니다.
-let g:ycm_filetype_whitelist = { '*': 1 }			  " 화이트 리스트를 설정합니다.
+let g:ycm_min_num_of_chars_for_completion = 1			  " 기본값은 2입니다. 문자가 1개 입력되면 그 때부터 자동완성을 시작합니다. 쓰지 않을려면 99같은 큰 값을 넣어줍니다.
+let g:ycm_auto_trigger = 1								  " 기본값은 1입니다. '.'이나 '->'을 받으면 자동으로 목록들을 출력해주죠.
+let g:ycm_collect_identifiers_from_tags_files = 1		  " tags 파일을 사용합니다. 성능상 이익이 있는걸로 알고 있습니다.
+let g:ycm_filetype_whitelist = { '*': 1 }				  " 화이트 리스트를 설정합니다.
 let g:ycm_filetype_blacklist = {
       \ 'tagbar' : 1,
       \ 'qf' : 1,
       \ 'notes' : 1,
-      \}											  " 블랙 리스트를 설정합니다.
+      \}												  " 블랙 리스트를 설정합니다.
 
 
 function MyFont()
