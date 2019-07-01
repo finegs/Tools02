@@ -144,6 +144,7 @@ set path+=$BOOST_INC
 "set tags+=~/.vim/tags/sdl
 "set tags+=~/.vim/tags/qt4
 set tags+=tags
+set tags+=$MINGW_HOME/lib/gcc/x86_64-w64-mingw32/8.1.0/include/tags
 set tags+=$MINGW_HOME/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/tags
 set tags+=$MINGW_HOME/x86_64-w64-mingw32/include/tags
 set tags+=$BOOST_INC/tags
@@ -299,9 +300,37 @@ let g:syntastic_cpp_checkers = ['gcc']
 "let g:syntastic_cpp_checkers = ['gcc']
 let g:syntastic_cpp_compiler = 'g++'
 let g:syntastic_cpp_compiler_options = '-std=c++2a'
+let g:syntastic_c_include_dirs = [ '../include/', 'include/', 'inc/', 'D:/Programs/boost/boost_inc', './' ]
+
+nmap <Tab> <C-W>w
+nmap <S-TAB> <C-W><C-P>
+map <F2> :w<CR><ESC>
+nmap <F2> :w<CR><ESC>
+imap <F2> <ESC> :w<CR>i
+"map <F4> :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
+"map <F5> :make clean all<CR>
+"map <F4> :!ctags -R -c++kinds=+p -fields=+ias -extra=+q .<CR>
+map <S-F4> :!ctags -R -n --c++-kinds=+p --extra=+f --fields=+i+K+S+l+m+a .<CR>
+"map <S-F4> :!ctags -R --lang=C --lang=C++ --fields=+l .<CR>
+
+map <F5> :cn<CR>
+map <S-F5> :cp<CR>
+map <C-F5> :cl<CR>
+
+map <F7> <ESC>:make debug<CR>
+map <S-F7> <ESC>:make clean debug<CR>
+map <C-F7> <ESC>:make release<CR>
+
+"map <F11> <C-t>
+"map <F12> <C-]>
+
+map <C-0> <ESC>:NERDTreeToggle<CR>
+map <C-9> <ESC>:TagbarToggle<CR>
+
 let g:syntastic_error_symbol = 'X'
 let g:syntastic_c_include_dirs = [ '../include', 'include', 'inc', 'D:/Programs/boost/boost_inc', '.' ]
 "let b:syntastic_c_cflags = '-Iinc -IC:\Programs\boost\1_69_0\include\boost-1_69'
+
 
 
 
@@ -329,7 +358,6 @@ let g:ycm_clangd_binary_path = "D:/Programs/LLVM/LLVM/bin/clangd.exe"
 let g:ycm_clangd_uses_ycmd_caching = 1
 let g:ycm_confirm_extra_conf = 1
 let g:ycm_global_ycm_extra_conf = "~/.vim/bundle/YouCompleteMe/.ycm_extra_conf.py"
-"let g:ycm_global_ycm_extra_conf = [ "~/.vim/*" ]
 let g:ycm_key_list_select_completion = ['<TAB>', '<Down>'] 
 let g:ycm_key_list_previous_completion = ['<S-TAB>', '<Up>']
 let g:ycm_autoclose_preview_window_after_completion = 1
@@ -350,7 +378,7 @@ nnoremap <leader>gt  :YcmCompleter GetType<CR>
 nnoremap <leader>gy  :YcmCompleter GetTypeImprecise<CR>
 
 
-let g:ycm_min_num_of_chars_for_completion = 2			  " 기본값은 2입니다. 문자가 1개 입력되면 그 때부터 자동완성을 시작합니다. 쓰지 않을려면 99같은 큰 값을 넣어줍니다.
+let g:ycm_min_num_of_chars_for_completion = 1			  " 기본값은 2입니다. 문자가 1개 입력되면 그 때부터 자동완성을 시작합니다. 쓰지 않을려면 99같은 큰 값을 넣어줍니다.
 let g:ycm_auto_trigger = 1								  " 기본값은 1입니다. '.'이나 '->'을 받으면 자동으로 목록들을 출력해주죠.
 let g:ycm_collect_identifiers_from_tags_files = 1		  " tags 파일을 사용합니다. 성능상 이익이 있는걸로 알고 있습니다.
 let g:ycm_filetype_whitelist = { '*': 1 }				  " 화이트 리스트를 설정합니다.
@@ -428,3 +456,8 @@ autocmd FileType asm set noexpandtab shiftwidth=8 softtabstop=0 syntax=nasm
 if &diff
   syntax off
 endif
+
+
+" added by SGK 20190622 : highlight color changed
+"hi SpellBad term=bold,undercurl ctermfg=lightgrey ctermbg=darkgrey
+hi SpellBad term=undercurl,bold ctermbg=lightgrey ctermfg=darkblue cterm=undercurl,bold gui=undercurl,bold
