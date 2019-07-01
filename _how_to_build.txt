@@ -2,4 +2,7 @@
 rem 1. cmake
 cmake -G "Visual Studio 15 Win64" -DPATH_TO_LLVM_ROOT=D:\Programs\LLVM\LLVM -DUSE_PYTHON2=OFF  -DPYTHON_INCLUDE_DIRS=D:\Prorams\Python\Python\Include . %USERPROFILE%/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp
 
-rem 2. 
+rem 2. build
+cmake --build . --target ycm_core --config Release
+
+rem 3. 

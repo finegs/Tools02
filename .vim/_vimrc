@@ -327,7 +327,7 @@ let g:ctrlp_user_command = 'ag %s -i -nocolor --nogroup -- hidden \
 let g:ycm_use_clangd = 1
 let g:ycm_clangd_binary_path = "D:/Programs/LLVM/LLVM/bin/clangd.exe"
 let g:ycm_clangd_uses_ycmd_caching = 1
-let g:ycm_confirm_extra_conf = 0
+let g:ycm_confirm_extra_conf = 1
 let g:ycm_global_ycm_extra_conf = "~/.vim/bundle/YouCompleteMe/.ycm_extra_conf.py"
 "let g:ycm_global_ycm_extra_conf = [ "~/.vim/*" ]
 let g:ycm_key_list_select_completion = ['<TAB>', '<Down>'] 
@@ -336,7 +336,8 @@ let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_warning_symbol = '>*'
 let g:ycm_server_use_vim_stdout = 1
 let g:ycm_server_log_level = 'debug'
-let g:ycm_clangd_args = [ '-limit-results=0', '-log=verbose', '-function-arg-placeholders', '-j=4', '-color'  ]
+let g:ycm_clangd_args = []
+"let g:ycm_clangd_args = [ '-limit-results=0', '-log=verbose', '-function-arg-placeholders', '-j=4', '-color'  ]
 
 "nnoremap <leader>p :e ./.ycm_extra_conf.py<CR>
 
