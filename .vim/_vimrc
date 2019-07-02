@@ -310,8 +310,8 @@ imap <F2> <ESC> :w<CR>i
 "map <F4> :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
 "map <F5> :make clean all<CR>
 "map <F4> :!ctags -R -c++kinds=+p -fields=+ias -extra=+q .<CR>
-map <S-F4> :!ctags -R -n --c++-kinds=+p --extra=+f --fields=+i+K+S+l+m+a .<CR>
-"map <S-F4> :!ctags -R --lang=C --lang=C++ --fields=+l .<CR>
+"map <S-F4> :!ctags -R -n --c++-kinds=+p --extra=+f --fields=+i+K+S+l+m+a .<CR>
+map <S-F4> :!ctags -R --c++-kinds=+p --extra=+q --fields=+l --language-force=C++ .  <CR>
 
 map <F5> :cn<CR>
 map <S-F5> :cp<CR>
