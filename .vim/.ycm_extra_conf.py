@@ -97,9 +97,9 @@ get_python_inc(),
 'C:/Programs/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed', 
 '-isystem', 
 'C:/Programs/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/include', 
-'-I',
+'-Isystem',
 'C:/Programs/boost/boost_inc',
-'-I',
+'-Isystem',
 '.',
 ]
 
