@@ -340,8 +340,6 @@ let g:syntastic_c_include_dirs = [ '../include', 'include', 'inc', 'D:/Programs/
 
 
 
-
-
 "Call Plugins
 ":TagbarToggle
 ":NERDTree
@@ -361,17 +359,11 @@ let g:ctrlp_user_command = 'ag %s -i -nocolor --nogroup -- hidden \
 
 "YouCompleteMe
 let g:ycm_use_clangd = 1
-<<<<<<< HEAD
 let g:ycm_clangd_binary_path = "C:/Programs/LLVM/LLVM/bin/clangd.exe"
 let g:ycm_confirm_extra_conf = 0
 let g:ycm_global_ycm_extra_conf = "~/.vim/bundle/YouCompleteMe/.ycm_extra_conf.py"
 "let g:ycm_global_ycm_extra_conf = [ "~/.vim/*" ]
-=======
-let g:ycm_clangd_binary_path = "D:/Programs/LLVM/LLVM/bin/clangd.exe"
-let g:ycm_clangd_uses_ycmd_caching = 1
-let g:ycm_confirm_extra_conf = 1
-let g:ycm_global_ycm_extra_conf = "~/.vim/bundle/YouCompleteMe/.ycm_extra_conf.py"
->>>>>>> 7e227c2c0edbb2a31d3b2baf630e750086ee82ec
+"let g:ycm_clangd_uses_ycmd_caching = 1
 let g:ycm_key_list_select_completion = ['<TAB>', '<Down>'] 
 let g:ycm_key_list_previous_completion = ['<S-TAB>', '<Up>']
 let g:ycm_autoclose_preview_window_after_completion = 1
@@ -383,12 +375,16 @@ let g:ycm_clangd_args = []
 
 "nnoremap <leader>p :e ./.ycm_extra_conf.py<CR>
 
-<<<<<<< HEAD
 let g:ycm_min_num_of_chars_for_completion = 2			  " 기본값은 2입니다. 문자가 1개 입력되면 그 때부터 자동완성을 시작합니다. 쓰지 않을려면 99같은 큰 값을 넣어줍니다.
 let g:ycm_auto_trigger = 1							  " 기본값은 1입니다. '.'이나 '->'을 받으면 자동으로 목록들을 출력해주죠.
 let g:ycm_collect_identifiers_from_tags_files = 1	  " tags 파일을 사용합니다. 성능상 이익이 있는걸로 알고 있습니다.
 let g:ycm_filetype_whitelist = { '*': 1 }			  " 화이트 리스트를 설정합니다.
-=======
+let g:ycm_filetype_blacklist = {
+      \ 'tagbar' : 1,
+      \ 'qf' : 1,
+      \ 'notes' : 1,
+      \}											  " 블랙 리스트를 설정합니다.
+
 nnoremap <leader>g  :YcmCompleter GoTo<CR>
 nnoremap <leader>gg :YcmCompleter GoToDefinition<CR>
 nnoremap <leader>gd  :YcmCompleter GoToDeclaration<CR>
@@ -396,18 +392,6 @@ nnoremap <leader>gi  :YcmCompleter GoToImprecise <CR>
 nnoremap <leader>gt  :YcmCompleter GetType<CR>
 "nnoremap <leader>p :YcmCompleter GetParent<CR>
 nnoremap <leader>gy  :YcmCompleter GetTypeImprecise<CR>
-
-
-let g:ycm_min_num_of_chars_for_completion = 1			  " 기본값은 2입니다. 문자가 1개 입력되면 그 때부터 자동완성을 시작합니다. 쓰지 않을려면 99같은 큰 값을 넣어줍니다.
-let g:ycm_auto_trigger = 1								  " 기본값은 1입니다. '.'이나 '->'을 받으면 자동으로 목록들을 출력해주죠.
-let g:ycm_collect_identifiers_from_tags_files = 1		  " tags 파일을 사용합니다. 성능상 이익이 있는걸로 알고 있습니다.
-let g:ycm_filetype_whitelist = { '*': 1 }				  " 화이트 리스트를 설정합니다.
->>>>>>> 7e227c2c0edbb2a31d3b2baf630e750086ee82ec
-let g:ycm_filetype_blacklist = {
-      \ 'tagbar' : 1,
-      \ 'qf' : 1,
-      \ 'notes' : 1,
-      \}												  " 블랙 리스트를 설정합니다.
 
 
 function MyFont()
