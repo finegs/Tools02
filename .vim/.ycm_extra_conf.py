@@ -38,6 +38,8 @@ DIR_OF_THIS_SCRIPT = os.path.abspath( os.path.dirname( __file__ ) )
 DIR_OF_THIRD_PARTY = os.path.join( DIR_OF_THIS_SCRIPT, 'third_party' )
 SOURCE_EXTENSIONS = [ '.cpp', '.cxx', '.cc', '.c', '.m', '.mm' ]
 
+YCM_PATH = 'C:/Users/fineg/.vim/bundle/YouCompleteMe'
+
 # These are the compilation flags that will be used in case there's no
 # compilation database set (by default, one is not set).
 # CHANGE THIS LIST OF FLAGS. YES, THIS IS THE DROID YOU HAVE BEEN LOOKING FOR.
@@ -53,8 +55,8 @@ flags = [
 # only the YCM source code needs it.
 '-DUSE_CLANG_COMPLETER',
 '-DYCM_EXPORT=',
-'-std=c++2a',
-#'-std=c++17',
+'-std=c++17',
+#'-std=c++2a',
 # THIS IS IMPORTANT! Without the '-x' flag, Clang won't know which language to
 # use when compiling headers. So it will guess. Badly. So C++ headers will be
 # compiled as C headers. You don't want that so ALWAYS specify the '-x' flag.
@@ -70,7 +72,9 @@ get_python_inc(),
 '-isystem',
 'cpp/llvm/include',
 '-isystem',
-'cpp/llvm/tools/clang/include',
+'cpp/llvm/include/clang-c',
+#'-isystem',
+#'cpp/llvm/tools/clang/include',
 '-I',
 'cpp/ycm',
 '-I',
@@ -86,21 +90,27 @@ get_python_inc(),
 '-isystem',
 'cpp/ycm/benchmarks/benchmark/include',
 '-isystem', 
-'C:/Programs/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++', 
+'D:/Programs/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++', 
 '-isystem', 
-'C:/Programs/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32', 
+'D:/Programs/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32', 
 '-isystem', 
-'C:/Programs/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward', 
+'D:/Programs/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward', 
 '-isystem', 
-'C:/Programs/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include', 
+'D:/Programs/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include', 
 '-isystem', 
-'C:/Programs/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed', 
+'D:/Programs/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed', 
 '-isystem', 
+<<<<<<< HEAD
 'C:/Programs/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/include', 
 '-Isystem',
 'C:/Programs/boost/boost_inc',
 '-Isystem',
 '.',
+=======
+'D:/Programs/msys64/mingw64/x86_64-w64-mingw32/include', 
+'-isysem',
+'D:/Programs/boost/boost_inc',
+>>>>>>> 7e227c2c0edbb2a31d3b2baf630e750086ee82ec
 ]
 
 # Clang automatically sets the '-std=' flag to 'c++14' for MSVC 2015 or later,
