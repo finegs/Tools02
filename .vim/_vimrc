@@ -92,7 +92,8 @@ set nowrap
 " set UTF-8 encoding
 
 if has("gui_running")
-  set enc=cp949 
+ " set enc=cp949 
+  set enc=utf-8
 else
   set enc=utf-8
 endif
@@ -128,13 +129,7 @@ set comments=sr:/*,mb:*,ex:\*/
 set path+=inc
 set path+=.
 set path+=..
-set path+=/usr/include
-set path+=/usr/local/include
-set path+=$MINGW_HOME/lib/gcc/x86_64-mingw32/8.1.0/include/c++
-set path+=$MINGW_HOME/lib/gcc/x86_64-mingw32/8.1.0/include
-set path+=$MINGW_HOME/lib/gcc/x86_64-mingw32/8.1.0/include
-set path+=$MINGW_HOME/x86_64-w64-mingw32/include
-set path+=$BOOST_INC
+
 
 " Install OmniCppComplete like described on http://vim.wikia.com/wiki/C++_code_completion
 " This offers intelligent C++ completion when typing ‘.’ ‘->’ or <C-o>
@@ -143,11 +138,15 @@ set path+=$BOOST_INC
 "set tags+=~/.vim/tags/gl
 "set tags+=~/.vim/tags/sdl
 "set tags+=~/.vim/tags/qt4
+
 set tags+=tags
-set tags+=$MINGW_HOME/lib/gcc/x86_64-w64-mingw32/8.1.0/include/tags
-set tags+=$MINGW_HOME/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/tags
-set tags+=$MINGW_HOME/x86_64-w64-mingw32/include/tags
-set tags+=$BOOST_INC/tags
+set tags+=C:/Programs/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/tags
+set tags+=C:/Programs/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32/tags
+set tags+=C:/Programs/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward/tags
+set tags+=C:/Programs/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/tags
+set tags+=C:/Programs/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed/tags
+set tags+=C:/Programs/msys64/mingw64/x86_64-w64-mingw32/include/tags
+set tags+=C:/Programs/boost/1_70_0/include/boost-1_70/tags
 
 " Install DoxygenToolkit from http://www.vim.org/scripts/script.php?script_id=987
 "let g:DoxygenToolkit_authorName="John Doe <john@doe.com>"
@@ -161,7 +160,7 @@ set lazyredraw
 set cul
 
 " added by SGK 20190629
-highlight SpellBad ctermbg=darkred ctermfg=white guibg=darkred guifg=white
+highlight SpellBad ctermbg=darkred ctermfg=gray guibg=darkred guifg=white
 
 
 ",vi => show edit tab .vimrc
@@ -184,7 +183,7 @@ map <C-h> <C-W>h
 map <C-l> <C-W>l
 
 nmap <Tab> <C-W>w
-nmap <S-TAB> <C-W><C-P>
+nmap <S-Tab> <C-W><C-P>
 
 map <F2> :w<CR><ESC>
 nmap <F2> :w<CR><ESC>
@@ -198,16 +197,18 @@ map <C-F3> :ts<CR>
 
 map <F4> :e %:p:s,.hpp$,.X123X,:s,.cpp$,.hpp,:s,.X123X$,.cpp,<CR>
 
+" recreate tags file with F5
 "map <F4> :!ctags -R -c++kinds=+p -fields=+ias -extra=+q .<CR>
 "map <S-F4> :!ctags -R -n --c++-kinds=+p --extra=+f --fields=+i+K+S+l+m+a .<CR>
-map <S-F4> <ESC>:!ctags -R --c++-kinds=+p --extra=+q --fields=+l --language-force=C++ .<CR>
-
-" recreate tags file with F5
-
 " ctags -R -n --fields=+i+K+S+l+m+a --exclude=src/react/conf-srch/node_modules
 "map <S-F4> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 "map <S-F4> :!ctags -R -n --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 "map <S-F4> :!ctags -R -n --c++-kinds=+p --fields=+i+K+S+l+m+a --extra=+q .<CR>
+" Remove Include search file paths
+" ctags -R -n --fields=+i+K+S+l+m+a --exclude=src/react/conf-srch/node_modules
+" map <S-F4> <ESC>:ctags -L - --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
+map <S-F4> <ESC>:!ctags -R --c++-kinds=+p --extra=+q --fields=+iaS --language-force=C++ .<CR>
+
 map <F5> :cn<CR>
 map <S-F5> :cp<CR>
 map <C-F5> :cl<CR>
@@ -297,55 +298,20 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 1
 let g:syntastic_cpp_checkers = ['gcc']
-"let g:syntastic_cpp_checkers = ['gcc']
 let g:syntastic_cpp_compiler = 'g++'
-<<<<<<< HEAD
-"let g:syntastic_cpp_compiler_options = '-std=c++17'
 let g:syntastic_cpp_compiler_options = '-std=c++2a'
-let g:syntastic_c_include_dirs = [ '../include/', 'include/', 'inc/', 'C:/Programs/boost/boost_inc', './' ]
-"let b:syntastic_c_cflags = '-Iinc -IC:\Programs\boost\1_69_0\include\boost-1_69'
-=======
-let g:syntastic_cpp_compiler_options = '-std=c++2a'
-let g:syntastic_c_include_dirs = [ '../include/', 'include/', 'inc/', 'D:/Programs/boost/boost_inc', './' ]
->>>>>>> 7e227c2c0edbb2a31d3b2baf630e750086ee82ec
-
-nmap <Tab> <C-W>w
-nmap <S-TAB> <C-W><C-P>
-map <F2> :w<CR><ESC>
-nmap <F2> :w<CR><ESC>
-imap <F2> <ESC> :w<CR>i
-"map <F4> :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
-"map <F5> :make clean all<CR>
-"map <F4> :!ctags -R -c++kinds=+p -fields=+ias -extra=+q .<CR>
-"map <S-F4> :!ctags -R -n --c++-kinds=+p --extra=+f --fields=+i+K+S+l+m+a .<CR>
-map <S-F4> :!ctags -R --c++-kinds=+p --extra=+q --fields=+l --language-force=C++ .  <CR>
-
-map <F5> :cn<CR>
-map <S-F5> :cp<CR>
-map <C-F5> :cl<CR>
-
-map <F7> <ESC>:make debug<CR>
-map <S-F7> <ESC>:make clean debug<CR>
-map <C-F7> <ESC>:make release<CR>
-
-"map <F11> <C-t>
-"map <F12> <C-]>
-
-map <C-0> <ESC>:NERDTreeToggle<CR>
-map <C-9> <ESC>:TagbarToggle<CR>
-
 let g:syntastic_error_symbol = 'X'
-let g:syntastic_c_include_dirs = [ '../include', 'include', 'inc', 'D:/Programs/boost/boost_inc', '.' ]
-"let b:syntastic_c_cflags = '-Iinc -IC:\Programs\boost\1_69_0\include\boost-1_69'
+
+let g:syntastic_c_include_dirs = ['C:/Programs/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++']
+let g:syntastic_c_include_dirs += ['C:/Programs/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32']
+let g:syntastic_c_include_dirs += ['C:/Programs/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward']
+let g:syntastic_c_include_dirs += ['C:/Programs/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include']
+let g:syntastic_c_include_dirs += ['C:/Programs/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed']
+let g:syntastic_c_include_dirs += ['C:/Programs/msys64/mingw64/x86_64-w64-mingw32/include']
+let g:syntastic_c_include_dirs += [ '../include/', 'include/', 'inc/', 'C:/Programs/boost/boost_inc', './' ]
 
 
 
-"Call Plugins
-":TagbarToggle
-":NERDTree
-
-" Remove Include search file paths
-" ctags -R -n --fields=+i+K+S+l+m+a --exclude=src/react/conf-srch/node_modules
 set complete-=i
 
 let g:ctrlp_user_command = 'ag %s -i -nocolor --nogroup -- hidden \
@@ -363,7 +329,7 @@ let g:ycm_clangd_binary_path = "C:/Programs/LLVM/LLVM/bin/clangd.exe"
 let g:ycm_confirm_extra_conf = 0
 let g:ycm_global_ycm_extra_conf = "~/.vim/bundle/YouCompleteMe/.ycm_extra_conf.py"
 "let g:ycm_global_ycm_extra_conf = [ "~/.vim/*" ]
-"let g:ycm_clangd_uses_ycmd_caching = 1
+let g:ycm_clangd_uses_ycmd_caching = 1
 let g:ycm_key_list_select_completion = ['<TAB>', '<Down>'] 
 let g:ycm_key_list_previous_completion = ['<S-TAB>', '<Up>']
 let g:ycm_autoclose_preview_window_after_completion = 1
@@ -390,7 +356,7 @@ nnoremap <leader>gg :YcmCompleter GoToDefinition<CR>
 nnoremap <leader>gd  :YcmCompleter GoToDeclaration<CR>
 nnoremap <leader>gi  :YcmCompleter GoToImprecise <CR>
 nnoremap <leader>gt  :YcmCompleter GetType<CR>
-"nnoremap <leader>p :YcmCompleter GetParent<CR>
+nnoremap <leader>p :YcmCompleter GetParent<CR>
 nnoremap <leader>gy  :YcmCompleter GetTypeImprecise<CR>
 
 
