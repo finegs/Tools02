@@ -14,13 +14,13 @@ call vundle#begin('$HOME/.vim/bundle/')
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'majutsushi/tagbar.git'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'scrooloose/syntastic'
-Plugin 'scrooloose/nerdtree'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'Valloric/ListToggle'
+"Plugin 'majutsushi/tagbar.git'
+"Plugin 'vim-airline/vim-airline'
+"Plugin 'vim-airline/vim-airline-themes'
+"Plugin 'scrooloose/syntastic'
+"Plugin 'scrooloose/nerdtree'
+"Plugin 'Valloric/YouCompleteMe'
+"Plugin 'Valloric/ListToggle'
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
@@ -129,6 +129,13 @@ set comments=sr:/*,mb:*,ex:\*/
 set path+=inc
 set path+=.
 set path+=..
+set path+=C:/Programs/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++
+set path+=C:/Programs/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32
+set path+=C:/Programs/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward
+set path+=C:/Programs/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include
+set path+=C:/Programs/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed
+set path+=C:/Programs/msys64/mingw64/x86_64-w64-mingw32/include
+set path+=C:/Programs/boost/1_70_0/include/boost-1_70
 
 
 " Install OmniCppComplete like described on http://vim.wikia.com/wiki/C++_code_completion
@@ -301,6 +308,34 @@ let g:syntastic_cpp_checkers = ['gcc']
 let g:syntastic_cpp_compiler = 'g++'
 let g:syntastic_cpp_compiler_options = '-std=c++2a'
 let g:syntastic_error_symbol = 'X'
+"let b:syntastic_c_cflags = '-Iinc -IC:\Programs\boost\1_69_0\include\boost-1_69'
+let g:syntastic_c_include_dirs = [ '../include/', 'include/', 'inc/' , '/', 'D:/Programs/boost/boost_inc', 'D:/Programs/msys64/usr/include', 'D:/Programs/msys64/usr/local/include', 'D:/Programs/msys64/mingw64/lib/gcc/x86_64-mingw32/8.1.0/include/c++', 'D:/Programs/msys64/mingw64/lib/gcc/x86_64-mingw32/8.1.0/include', 'D:/Programs/msys64/mingw64/x86_64-w64-mingw32/include', 'D:\Programs/boost/boost_inc' , '/' ]
+
+
+nmap <Tab> <C-W>w
+nmap <S-TAB> <C-W><C-P>
+map <F2> :w<CR><ESC>
+nmap <F2> :w<CR><ESC>
+imap <F2> <ESC> :w<CR>i
+"map <F4> :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
+"map <F5> :make clean all<CR>
+"map <F4> :!ctags -R -c++kinds=+p -fields=+ias -extra=+q .<CR>
+"map <S-F4> :!ctags -R -n --c++-kinds=+p --extra=+f --fields=+i+K+S+l+m+a .<CR>
+map <S-F4> :!ctags -R --c++-kinds=+p --extra=+q --fields=+l --language-force=C++ .  <CR>
+
+map <F5> :cn<CR>
+map <S-F5> :cp<CR>
+map <C-F5> :cl<CR>
+
+map <F7> <ESC>:make debug<CR>
+map <S-F7> <ESC>:make clean debug<CR>
+map <C-F7> <ESC>:make release<CR>
+
+"map <F11> <C-t>
+"map <F12> <C-]>
+
+map <C-0> <ESC>:NERDTreeToggle<CR>
+map <C-9> <ESC>:TagbarToggle<CR>
 
 let g:syntastic_c_include_dirs = ['C:/Programs/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++']
 let g:syntastic_c_include_dirs += ['C:/Programs/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32']
@@ -357,6 +392,8 @@ nnoremap <leader>gd  :YcmCompleter GoToDeclaration<CR>
 nnoremap <leader>gi  :YcmCompleter GoToImprecise <CR>
 nnoremap <leader>gt  :YcmCompleter GetType<CR>
 nnoremap <leader>p :YcmCompleter GetParent<CR>
+nnoremap <leader>gr  :YcmCompleter GoToReferences<CR>
+"nnoremap <leader>p :YcmCompleter GetParent<CR>
 nnoremap <leader>gy  :YcmCompleter GetTypeImprecise<CR>
 
 
