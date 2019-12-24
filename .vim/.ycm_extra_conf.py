@@ -89,27 +89,33 @@ get_python_inc(),
 'cpp/ycm/tests/gmock/include',
 '-isystem',
 'cpp/ycm/benchmarks/benchmark/include',
-'-isystem', 
+'-I', 
 'D:/Programs/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++', 
-'-isystem', 
+'-I', 
 'D:/Programs/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32', 
-'-isystem', 
+'-I', 
 'D:/Programs/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward', 
-'-isystem', 
+'-I', 
 'D:/Programs/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include', 
-'-isystem', 
+'-I', 
 'D:/Programs/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed', 
-'-isystem', 
+'-I', 
 'D:/Programs/msys64/mingw64/x86_64-w64-mingw32/include', 
-'-isysem',
+'-I',
 'D:/Programs/boost/boost_inc',
+'-I',
+'D:/Programs/boost/boost_inc/boost',
 ]
 
 # Clang automatically sets the '-std=' flag to 'c++14' for MSVC 2015 or later,
 # which is required for compiling the standard library, and to 'c++11' for older
 # versions.
 if platform.system() != 'Windows':
-  flags.append( '-std=c++11' )
+  flags.append( '-std=c++17' )
+else:
+  flags.append( '-std=c++17' )
+
+
 
 
 # Set this to the absolute path to the folder (NOT the file!) containing the

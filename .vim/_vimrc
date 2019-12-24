@@ -14,13 +14,13 @@ call vundle#begin('$HOME/.vim/bundle/')
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'majutsushi/tagbar.git'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'scrooloose/syntastic'
-Plugin 'scrooloose/nerdtree'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'Valloric/ListToggle'
+"Plugin 'majutsushi/tagbar.git'
+"Plugin 'vim-airline/vim-airline'
+"Plugin 'vim-airline/vim-airline-themes'
+"Plugin 'scrooloose/syntastic'
+"Plugin 'scrooloose/nerdtree'
+"Plugin 'Valloric/YouCompleteMe'
+"Plugin 'Valloric/ListToggle'
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
@@ -128,13 +128,12 @@ set comments=sr:/*,mb:*,ex:\*/
 set path+=inc
 set path+=.
 set path+=..
-set path+=/usr/include
-set path+=/usr/local/include
-set path+=$MINGW_HOME/lib/gcc/x86_64-mingw32/8.1.0/include/c++
-set path+=$MINGW_HOME/lib/gcc/x86_64-mingw32/8.1.0/include
-set path+=$MINGW_HOME/lib/gcc/x86_64-mingw32/8.1.0/include
-set path+=$MINGW_HOME/x86_64-w64-mingw32/include
-set path+=$BOOST_INC
+set path+=D:/Programs/msys64/usr/include
+set path+=D:/Programs/msys64/usr/local/include
+set path+=D:/Programs/msys64/mingw64/lib/gcc/x86_64-mingw32/8.1.0/include/c++
+set path+=D:/Programs/msys64/mingw64/lib/gcc/x86_64-mingw32/8.1.0/include
+set path+=D:/Programs/msys64/mingw64/x86_64-w64-mingw32/include
+set path+=D:\Programs/boost/boost_inc
 
 " Install OmniCppComplete like described on http://vim.wikia.com/wiki/C++_code_completion
 " This offers intelligent C++ completion when typing ‘.’ ‘->’ or <C-o>
@@ -144,10 +143,12 @@ set path+=$BOOST_INC
 "set tags+=~/.vim/tags/sdl
 "set tags+=~/.vim/tags/qt4
 set tags+=tags
-set tags+=$MINGW_HOME/lib/gcc/x86_64-w64-mingw32/8.1.0/include/tags
-set tags+=$MINGW_HOME/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/tags
-set tags+=$MINGW_HOME/x86_64-w64-mingw32/include/tags
-set tags+=$BOOST_INC/tags
+set path+=D:/Programs/msys64/usr/include/tags
+set path+=D:/Programs/msys64/usr/local/include/tags
+set path+=D:/Programs/msys64/mingw64/lib/gcc/x86_64-mingw32/8.1.0/include/c++/tags
+set path+=D:/Programs/msys64/mingw64/lib/gcc/x86_64-mingw32/8.1.0/include/tags
+set path+=D:/Programs/msys64/mingw64/x86_64-w64-mingw32/include/tags
+set path+=D:\Programs/boost/boost_inc/tags
 
 " Install DoxygenToolkit from http://www.vim.org/scripts/script.php?script_id=987
 "let g:DoxygenToolkit_authorName="John Doe <john@doe.com>"
@@ -297,10 +298,11 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 1
 let g:syntastic_cpp_checkers = ['gcc']
-"let g:syntastic_cpp_checkers = ['gcc']
 let g:syntastic_cpp_compiler = 'g++'
 let g:syntastic_cpp_compiler_options = '-std=c++2a'
-let g:syntastic_c_include_dirs = [ '../include/', 'include/', 'inc/', 'D:/Programs/boost/boost_inc', './' ]
+let g:syntastic_c_include_dirs = [ '../include/', 'include/', 'inc/' , '/', 'D:/Programs/boost/boost_inc', 'D:/Programs/msys64/usr/include', 'D:/Programs/msys64/usr/local/include', 'D:/Programs/msys64/mingw64/lib/gcc/x86_64-mingw32/8.1.0/include/c++', 'D:/Programs/msys64/mingw64/lib/gcc/x86_64-mingw32/8.1.0/include', 'D:/Programs/msys64/mingw64/x86_64-w64-mingw32/include', 'D:\Programs/boost/boost_inc' , '/' ]
+let g:syntastic_error_symbol = 'X'
+"let b:syntastic_c_cflags = '-Iinc -IC:\Programs\boost\1_69_0\include\boost-1_69'
 
 nmap <Tab> <C-W>w
 nmap <S-TAB> <C-W><C-P>
@@ -327,9 +329,6 @@ map <C-F7> <ESC>:make release<CR>
 map <C-0> <ESC>:NERDTreeToggle<CR>
 map <C-9> <ESC>:TagbarToggle<CR>
 
-let g:syntastic_error_symbol = 'X'
-let g:syntastic_c_include_dirs = [ '../include', 'include', 'inc', 'D:/Programs/boost/boost_inc', '.' ]
-"let b:syntastic_c_cflags = '-Iinc -IC:\Programs\boost\1_69_0\include\boost-1_69'
 
 
 
@@ -374,6 +373,7 @@ nnoremap <leader>gg :YcmCompleter GoToDefinition<CR>
 nnoremap <leader>gd  :YcmCompleter GoToDeclaration<CR>
 nnoremap <leader>gi  :YcmCompleter GoToImprecise <CR>
 nnoremap <leader>gt  :YcmCompleter GetType<CR>
+nnoremap <leader>gr  :YcmCompleter GoToReferences<CR>
 "nnoremap <leader>p :YcmCompleter GetParent<CR>
 nnoremap <leader>gy  :YcmCompleter GetTypeImprecise<CR>
 
