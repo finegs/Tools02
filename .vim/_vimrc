@@ -14,13 +14,13 @@ call vundle#begin('$HOME/.vim/bundle/')
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
-"Plugin 'majutsushi/tagbar.git'
-"Plugin 'vim-airline/vim-airline'
-"Plugin 'vim-airline/vim-airline-themes'
-"Plugin 'scrooloose/syntastic'
-"Plugin 'scrooloose/nerdtree'
-"Plugin 'Valloric/YouCompleteMe'
-"Plugin 'Valloric/ListToggle'
+Plugin 'majutsushi/tagbar.git'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'scrooloose/syntastic'
+Plugin 'scrooloose/nerdtree'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'Valloric/ListToggle'
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
